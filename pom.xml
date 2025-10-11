@@ -9,9 +9,9 @@
   <version>1.0-SNAPSHOT</version>
 
   <properties>
-    <!-- Jei kils bėdų su JDK 23, pakeisk abi į 17 -->
-    <maven.compiler.source>23</maven.compiler.source>
-    <maven.compiler.target>23</maven.compiler.target>
+    <!-- Naudojam Java 17 -->
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <junit.version>5.10.2</junit.version>
@@ -33,7 +33,7 @@
 
   <build>
     <plugins>
-      <!-- Compiler (aiškiai nurodom) -->
+      <!-- Compiler -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -41,14 +41,10 @@
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
-          <!-- Jei per JDK 23 reikės: <release>${maven.compiler.target}</release> -->
         </configuration>
       </plugin>
 
-      <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-
-      <!-- Surefire (JUnit5) -->
+      <!-- Surefire (JUnit 5) -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>

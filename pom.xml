@@ -29,6 +29,14 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- CK metrics library (class, method, OO metrics) -->
+    <dependency>
+      <groupId>com.github.mauricioaniche</groupId>
+      <artifactId>ck</artifactId>
+      <version>0.7.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -104,6 +112,31 @@
           </execution>
         </executions>
       </plugin>
+
+      <!-- Exec plugin to run CK jar if needed -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.3.0</version>
+      </plugin>
+
+      <!-- Dependency plugin to copy standalone jars to target/ for CLI runs -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.6.1</version>
+      </plugin>
+      <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
+            <version>3.20.0</version>
+            <configuration>
+                <rulesets>
+                    <ruleset>pmd-ruleset.xml</ruleset>
+                </rulesets>
+                <printFailingErrors>true</printFailingErrors>
+            </configuration>
+        </plugin>
     </plugins>
   </build>
 </project>

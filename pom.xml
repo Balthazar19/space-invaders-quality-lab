@@ -47,8 +47,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.13.0</version>
         <configuration>
-          <source>${maven.compiler.source}</source>
-          <target>${maven.compiler.target}</target>
+          <release>17</release>
         </configuration>
       </plugin>
 
@@ -89,6 +88,9 @@
         <artifactId>maven-pmd-plugin</artifactId>
         <version>${pmd.version}</version>
         <configuration>
+          <rulesets>
+            <ruleset>pmd-ruleset.xml</ruleset>
+          </rulesets>
           <printFailingErrors>true</printFailingErrors>
           <targetJdk>${maven.compiler.target}</targetJdk>
           <minimumTokens>100</minimumTokens>
@@ -126,17 +128,6 @@
         <artifactId>maven-dependency-plugin</artifactId>
         <version>3.6.1</version>
       </plugin>
-      <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-pmd-plugin</artifactId>
-            <version>3.20.0</version>
-            <configuration>
-                <rulesets>
-                    <ruleset>pmd-ruleset.xml</ruleset>
-                </rulesets>
-                <printFailingErrors>true</printFailingErrors>
-            </configuration>
-        </plugin>
     </plugins>
   </build>
 </project>
